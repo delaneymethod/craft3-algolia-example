@@ -1,17 +1,23 @@
-dateModified: 1619785826
+dateModified: 1619787282
 email:
   fromEmail: hello@delaneymethod.com
   fromName: 'Crafty Algolia'
   transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  scout:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.1.0
 system:
   edition: solo
   live: true
   name: 'Crafty Algolia'
+  retryDuration: null
   schemaVersion: 3.6.8
-  timeZone: America/Los_Angeles
+  timeZone: Europe/Dublin
 users:
   allowPublicRegistration: false
   defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
+  photoSubpath: '{username}'
+  photoVolumeUid: 5f92111f-1d8c-40aa-b1ed-1abcfeb14a51 # User Photos
   requireEmailVerification: true

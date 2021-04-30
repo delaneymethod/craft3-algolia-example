@@ -1,6 +1,7 @@
 {
   "require": {
     "craftcms/cms": "^3.6.4",
+    "rias/craft-scout": "2.4.0",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
