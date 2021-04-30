@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-GB
+name: 'Crafty Algolia'
+primary: true
+siteGroup: ef21fc32-e120-4436-9af2-0f234d737dc4 # Crafty Algolia
+sortOrder: 1

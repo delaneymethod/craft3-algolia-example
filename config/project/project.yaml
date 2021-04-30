@@ -1,0 +1,17 @@
+dateModified: 1619785826
+email:
+  fromEmail: hello@delaneymethod.com
+  fromName: 'Crafty Algolia'
+  transportType: craft\mail\transportadapters\Sendmail
+system:
+  edition: solo
+  live: true
+  name: 'Crafty Algolia'
+  schemaVersion: 3.6.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
