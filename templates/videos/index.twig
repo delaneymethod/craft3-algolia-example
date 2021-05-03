@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+
+<h1>Videos</h1>
+
+{#
+{% set search = craft.algolia.search({
+	index: "dev_videos",
+	query: craft.app.request.param('q'),
+	params: {
+		"hitsPerPage": 20
+	}
+}) %}
+
+<form action="/videos">
+	<input type="search" name="q" placeholder="Search videos" />
+</form>
+
+<ul>
+	{% for hit in search.hits %}
+		<li><a href="{{ hit.youtubeUrl }}" title="{{ hit.description }}">{{ hit.title }}</a></li>
+	{% endfor %}
+</ul>
+#}
+
+<div id="searchBox"></div>
+<ul id="hits"></ul>
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+<script>
+	const searchClient = algoliasearch('G1TZVFCRYD', '870c47167fd915b4d18a269562e738e2');
+
+	const search = instantsearch({
+		indexName: 'dev_videos',
+		searchClient
+	});
+
+	search.addWidgets([
+		instantsearch.widgets.searchBox({
+			container: '#searchBox',
+			showSubmit: false,
+			showReset: false
+		}),
+
+		instantsearch.widgets.hits({
+			container: '#hits',
+			templates: {
+				item(hit, bindEvent) {
+					return `
+						<li>
+							<h3><a href="${hit.youtubeUrl}">${instantsearch.highlight({ attribute: 'title', hit })}</a></h3>
+							<p>${hit.description}</p>
+						</li>
+					`;
+				}
+			}
+		})
+	]);
+
+	search.start();
+</script>

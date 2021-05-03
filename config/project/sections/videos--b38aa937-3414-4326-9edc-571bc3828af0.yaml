@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: videos
+name: Videos
+propagationMethod: all
+siteSettings:
+  1dfd7eab-b49d-4899-9c7a-98059125978a: # Crafty Algolia
+    enabledByDefault: true
+    hasUrls: true
+    template: videos/index
+    uriFormat: 'videos/{slug}'
+type: channel

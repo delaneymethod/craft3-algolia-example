@@ -1,0 +1,39 @@
+{
+  "name": "delaneymethod/craftyalgolia",
+  "description": "A crafty algolia module by DelaneyMethod",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "module",
+    "crafty",
+    "algolia",
+    "crafty-algolia",
+  ],
+  "support": {
+    "docs": "https://github.com/delaneymethod/craftyalgolia/blob/master/README.md",
+    "issues": "https://github.com/delaneymethod/craftyalgolia/issues"
+  },
+  "license": "MIT",
+  "type": "project",
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "DelaneyMethod",
+      "email": "hello@delaneymethod.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "craftcms/cms": "^3.0.0-RC1"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\delaneymethod\\craftyalgolia\\": "modules/delaneymethod/craftyalgolia/src/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}

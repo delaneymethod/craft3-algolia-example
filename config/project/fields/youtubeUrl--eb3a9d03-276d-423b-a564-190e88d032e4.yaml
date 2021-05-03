@@ -1,0 +1,14 @@
+contentColumnType: string(255)
+fieldGroup: de2e79a2-b988-4f95-873b-5431ea7b71ff # Videos
+handle: youtubeUrl
+instructions: ''
+name: 'YouTube URL'
+searchable: true
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

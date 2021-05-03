@@ -18,11 +18,40 @@
  */
 
 use craft\helpers\App;
+use modules\delaneymethod\craftyalgolia\CraftyAlgolia;
+use modules\delaneymethod\craftyalgolia\services\CraftyAlgoliaService;
 
 return [
-    'id' => App::env('APP_ID') ?: 'CraftCMS',
-    'modules' => [
-        'my-module' => \modules\Module::class,
-    ],
-    //'bootstrap' => ['my-module'],
+	// Global settings
+	'*' => [
+		'id' => App::env('APP_ID') ?: 'CraftCMS',
+
+		'modules' => [],
+
+		'bootstrap' => [],
+	],
+
+	// Dev environment settings
+	'dev' => [
+		'modules' => [
+			'craftyalgolia' => [
+				'class' => CraftyAlgolia::class,
+				'components' => [
+					'craftyAlgoliaService' => [
+						'class' => CraftyAlgoliaService::class,
+					],
+				],
+			],
+		],
+
+		'bootstrap' => [
+			'craftyalgolia',
+		],
+	],
+
+	// Staging environment settings
+	'staging' => [],
+
+	// Production environment settings
+	'production' => [],
 ];

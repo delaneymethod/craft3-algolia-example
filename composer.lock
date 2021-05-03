@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8f71dd68d5255c02e4c6c070cebb9fd",
+    "content-hash": "fd299b7e272a49461a3cad19f72f49f6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3332,6 +3332,59 @@
                 "laravel"
             ],
             "time": "2020-09-05T00:05:48+00:00"
+        },
+        {
+            "name": "trendyminds/algolia",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trendyminds/algolia/zipball/18542cc3106f506ac8991684bb61f573a7a2e9b8",
+                "reference": "18542cc3106f506ac8991684bb61f573a7a2e9b8",
+                "shasum": ""
+            },
+            "require": {
+                "algolia/algoliasearch-client-php": "^2.2",
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Algolia",
+                "handle": "algolia",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/trendyminds/algolia/master/CHANGELOG.md",
+                "components": {
+                    "algoliaService": "trendyminds\\algolia\\services\\AlgoliaService"
+                },
+                "class": "trendyminds\\algolia\\Algolia"
+            },
+            "autoload": {
+                "psr-4": {
+                    "trendyminds\\algolia\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "TrendyMinds",
+                    "homepage": "https://trendyminds.com"
+                }
+            ],
+            "description": "Easily pull search results from Algolia into your Craft CMS website",
+            "keywords": [
+                "algolia",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/trendyminds/algolia/blob/master/README.md",
+                "issues": "https://github.com/trendyminds/algolia/issues"
+            },
+            "time": "2019-03-15T13:50:26+00:00"
         },
         {
             "name": "true/punycode",

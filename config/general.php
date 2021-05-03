@@ -14,6 +14,8 @@ $isDev = App::env('ENVIRONMENT') === 'dev';
 $isProd = App::env('ENVIRONMENT') === 'production';
 
 return [
+	// Global settings
+	'*' => [
     // Default Week Start Day (0 = Sunday, 1 = Monday...)
     'defaultWeekStartDay' => 1,
 
@@ -35,7 +37,17 @@ return [
     // Whether crawlers should be allowed to index pages and following links
     'disallowRobots' => !$isProd,
 
-	'aliases' => [
-		'@userPhotos' => 'userphotos',
+		'aliases' => [
+			'@userPhotos' => 'userphotos',
+		],
 	],
+
+	// Dev environment settings
+	'dev' => [],
+
+	// Staging environment settings
+	'staging' => [],
+
+	// Production environment settings
+	'production' => [],
 ];

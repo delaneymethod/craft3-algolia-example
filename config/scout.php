@@ -13,7 +13,14 @@
  * you do for 'general.php'
  */
 
+use craft\elements\Entry;
+use rias\scout\ScoutIndex;
+use craft\elements\db\EntryQuery;
+use modules\delaneymethod\craftyalgolia\CraftyAlgolia;
+
 return [
+	// Global settings
+	'*' => [
     /*
      * Scout listens to numerous Element events to keep them updated in
      * their respective indices. You can disable these and update
@@ -62,4 +69,25 @@ return [
      * index should define an ElementType, criteria and a transformer.
      */
     'indices'       => [],
+	],
+
+	// Dev environment settings
+	'dev' => [
+		'indices' => [
+			ScoutIndex::create('dev_videos')
+				->elementType(Entry::class)
+				->criteria(function(EntryQuery $query) {
+					return $query->section('videos');
+				})
+				->transformer(function(Entry $entry) {
+					return CraftyAlgolia::$instance->craftyAlgoliaService->transformVideoData($entry);
+				}),
+		],
+	],
+
+	// Staging environment settings
+	'staging' => [],
+
+	// Production environment settings
+	'production' => [],
 ];

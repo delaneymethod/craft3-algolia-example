@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: de2e79a2-b988-4f95-873b-5431ea7b71ff # Videos
+handle: description
+instructions: ''
+name: Description
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

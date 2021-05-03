@@ -1,9 +1,16 @@
-dateModified: 1619787282
+dateModified: 1620056371
 email:
   fromEmail: hello@delaneymethod.com
   fromName: 'Crafty Algolia'
   transportType: craft\mail\transportadapters\Sendmail
 plugins:
+  algolia:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      apiKey: $ALGOLIA_SEARCH_API_KEY
+      applicationId: $ALGOLIA_APPLICATION_ID
   scout:
     edition: standard
     enabled: true
