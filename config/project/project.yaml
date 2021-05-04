@@ -1,4 +1,4 @@
-dateModified: 1620056371
+dateModified: 1620123640
 email:
   fromEmail: hello@delaneymethod.com
   fromName: 'Crafty Algolia'
@@ -11,6 +11,14 @@ plugins:
     settings:
       apiKey: $ALGOLIA_SEARCH_API_KEY
       applicationId: $ALGOLIA_APPLICATION_ID
+  craftyalgolia:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      enabled: true
+      markdownText: 'Generic plugin information.'
+      notificationEmail: hello@delaneymethod.com
   scout:
     edition: standard
     enabled: true

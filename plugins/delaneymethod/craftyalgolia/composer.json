@@ -1,13 +1,14 @@
 {
   "name": "delaneymethod/craftyalgolia",
-  "description": "A crafty algolia module by DelaneyMethod",
+  "description": "A crafty algolia plugin by DelaneyMethod",
   "keywords": [
     "craft",
     "cms",
     "craftcms",
-    "module",
+    "plugin",
     "crafty",
     "algolia",
+    "craft-plugin",
     "crafty-algolia"
   ],
   "support": {
@@ -15,7 +16,7 @@
     "issues": "https://github.com/delaneymethod/craftyalgolia/issues"
   },
   "license": "MIT",
-  "type": "project",
+  "type": "craft-plugin",
   "prefer-stable": true,
   "minimum-stability": "dev",
   "authors": [

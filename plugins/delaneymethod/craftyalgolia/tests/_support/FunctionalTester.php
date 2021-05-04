@@ -1,0 +1,33 @@
+<?php
+/**
+ * CraftyAlgolia plugin for Craft CMS 3.x
+ *
+ * A Crafty Algolia plugin
+ *
+ * @link      http://www.delaneymethod.com
+ * @copyright Copyright (c) 2021 DelaneyMethod
+ */
+
+use Codeception\Actor;
+use Codeception\Lib\Friend;
+
+/**
+ * Inherited Methods
+ *
+ * @method void wantToTest($text)
+ * @method void wantTo($text)
+ * @method void execute($callable)
+ * @method void expectTo($prediction)
+ * @method void expect($prediction)
+ * @method void amGoingTo($argumentation)
+ * @method void am($role)
+ * @method void lookForwardTo($achieveValue)
+ * @method void comment($description)
+ * @method Friend haveFriend($name, $actorClass = null)
+ *
+ * @SuppressWarnings(PHPMD)
+ */
+class FunctionalTester extends Actor
+{
+    use _generated\FunctionalTesterActions;
+}

@@ -1,0 +1,39 @@
+{#
+/**
+ * CraftyAlgolia plugin for Craft CMS 3.x
+ *
+ * CraftyAlgolia _settings.twig
+ *
+ * @author    DelaneyMethod
+ * @copyright Copyright (c) 2021 DelaneyMethod
+ * @link      http://www.delaneymethod.com
+ * @package   CraftyAlgolia
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.lightswitchField({
+	label: 'Enabled',
+	name: 'enabled',
+	on: settings.enabled,
+	first: true
+}) }}
+
+{{ forms.textareaField({
+	label: 'Markdown text',
+	instructions: 'The plugin settings',
+	name: 'markdownText',
+	value: settings.markdownText,
+	rows: 15
+}) }}
+
+{{ forms.textField({
+	type: 'email',
+	label: 'Notification email',
+	instructions: 'The plugin notification emails',
+	name: 'notificationEmail',
+	value: settings.notificationEmail,
+}) }}
+

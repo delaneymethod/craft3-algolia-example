@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd299b7e272a49461a3cad19f72f49f6",
+    "content-hash": "900f487e587ad7f01f2e3cb2452fd0b7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -681,6 +681,66 @@
                 "symmetric key cryptography"
             ],
             "time": "2021-04-09T23:57:26+00:00"
+        },
+        {
+            "name": "delaneymethod/craftyalgolia",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "plugins/delaneymethod/craftyalgolia",
+                "reference": "5f67d446db9e623b1cbf11198835e73bb7683926"
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0",
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^3.0",
+                "craftcms/cms": "^3.1.0",
+                "vlucas/phpdotenv": "^3.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "CraftyAlgolia",
+                "handle": "craftyalgolia",
+                "developer": "DelaneyMethod",
+                "developerUrl": "https://www.delaneymethod.com",
+                "documentationUrl": "https://github.com/delaneymethod/craftyalgolia/blob/master/README.md",
+                "changelogUrl": "https://raw.githubusercontent.com/delaneymethod/craftyalgolia/master/CHANGELOG.md",
+                "class": "delaneymethod\\craftyalgolia\\CraftyAlgolia"
+            },
+            "autoload": {
+                "psr-4": {
+                    "delaneymethod\\craftyalgolia\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DelaneyMethod",
+                    "email": "hello@delaneymethod.com"
+                }
+            ],
+            "description": "A crafty algolia plugin by DelaneyMethod",
+            "keywords": [
+                "algolia",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "crafty",
+                "crafty-algolia",
+                "plugin"
+            ],
+            "support": {
+                "docs": "https://github.com/delaneymethod/craftyalgolia/blob/master/README.md",
+                "issues": "https://github.com/delaneymethod/craftyalgolia/issues"
+            },
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "doctrine/lexer",
@@ -4578,9 +4638,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "delaneymethod/craftyalgolia": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],

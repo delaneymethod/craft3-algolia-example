@@ -1,0 +1,114 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * CraftyAlgolia plugin for Craft CMS 3.x
+ *
+ * CraftyAlgolia index.twig
+ *
+ * @author    DelaneyMethod
+ * @copyright Copyright (c) 2021 DelaneyMethod
+ * @link      http://www.delaneymethod.com
+ * @package   CraftyAlgolia
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% set tabs = {
+	intro: {
+		label: 'Intro',
+		url: '#intro'
+	},
+	fields: {
+		label: 'Feedback',
+		url: '#feedback'
+	}
+} %}
+
+{% set title = "CraftyAlgolia" %}
+
+{% block content %}
+	<div id="intro">
+		{% set markdownText = craft.app.plugins.getPlugin('craftyalgolia').settings.markdownText %}
+		{{ markdownText|markdown }}
+	</div>
+	<div id="feedback" class="hidden">
+		<form action="" method="post">
+			{{ csrfInput() }}
+
+			{{ forms.hidden({
+				name: 'action',
+				value: 'craftyalgolia/crafty-algolia-feedback/send-email'
+			}) }}
+
+			{#
+			{{ forms.textField({
+				label: 'Text Field',
+				name: 'text',
+				value: 'Dummy',
+				instructions: 'Type some text',
+				first: true
+			}) }}
+
+			{{ forms.dateField({
+				label: 'Date Field',
+				name: 'date',
+				value: '',
+				instructions: 'Type or select a date'
+			}) }}
+
+			{{ forms.colorField({
+				label: 'Color Field',
+				name: 'color',
+				value: '',
+				instructions: 'Select a color'
+			}) }}
+
+			{{ forms.selectField({
+				label: 'Select Field',
+				name: 'select',
+				value: 'b',
+				options: {
+					a: 'A',
+					b: 'B',
+					c: 'C'
+				},
+				instructions: 'Select an option'
+			}) }}
+			#}
+
+			{{ forms.textField({
+				label: 'Subject',
+				name: 'subject',
+				value: '',
+				instructions: 'Enter a subject for your question or feedback',
+				first: true,
+				required: true
+			}) }}
+
+			{{ forms.selectField({
+				label: 'Topic',
+				name: 'topic',
+				value: '',
+				options: {
+					question: 'Question',
+					feedback: 'Feedback'
+				},
+				instructions: 'Select a topic'
+			}) }}
+
+			{{ forms.textareaField({
+				label: 'Message',
+				name: 'message',
+				value: '',
+				instructions: 'Enter a message',
+				rows: 5,
+				required: true
+			}) }}
+
+			<button type="submit" class="btn">Submit</button>
+		</form>
+	</div>
+{% endblock %}

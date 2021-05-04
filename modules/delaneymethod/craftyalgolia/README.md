@@ -4,7 +4,7 @@ A Crafty Algolia module
 
 ## Requirements
 
-This module requires Craft CMS 3.0.0-RC1 or later.
+This module requires Craft CMS 3.1.0 or later.
 
 ## Installation
 

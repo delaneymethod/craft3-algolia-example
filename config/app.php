@@ -18,6 +18,7 @@
  */
 
 use craft\helpers\App;
+use craft\mail\transportadapters\Smtp;
 use modules\delaneymethod\craftyalgolia\CraftyAlgolia;
 use modules\delaneymethod\craftyalgolia\services\CraftyAlgoliaService;
 
@@ -46,6 +47,31 @@ return [
 
 		'bootstrap' => [
 			'craftyalgolia',
+		],
+
+		'components' => [
+			'mailer' => function() {
+				// Get the stored email settings
+				$settings = App::mailSettings();
+
+				// Override the transport adapter class
+				$settings->transportType = Smtp::class;
+
+				// Override the transport adapter settings
+				$settings->transportSettings = [
+					'useAuthentication' => true,
+					'host' => App::env('SMTP_HOST'),
+					'port' => App::env('SMTP_PORT'),
+					'username' => App::env('SMTP_USERNAME'),
+					'password' => App::env('SMTP_PASSWORD'),
+				];
+
+				// Create a Mailer component config with these settings
+				$config = App::mailerConfig($settings);
+
+				// Instantiate and return it
+				return Craft::createObject($config);
+			},
 		],
 	],
 
