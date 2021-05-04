@@ -14,6 +14,8 @@ use Craft;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\i18n\PhpMessageSource;
 use craft\web\View;
+use craft\web\twig\variables\Cp;
+use craft\events\RegisterCpNavItemsEvent;
 use modules\delaneymethod\craftyalgolia\assetbundles\craftyalgolia\CraftyAlgoliaAsset;
 use modules\delaneymethod\craftyalgolia\services\CraftyAlgoliaService;
 use yii\base\Event;
@@ -106,6 +108,8 @@ class CraftyAlgolia extends Module {
 
 		self::$instance = $this;
 
+		$this->_registerCpEvents();
+
 		// Load our AssetBundle
 		if (Craft::$app->getRequest()->getIsCpRequest()) {
 			Event::on(
@@ -132,5 +136,33 @@ class CraftyAlgolia extends Module {
 			),
 			__METHOD__
 		);
+	}
+
+	private function _registerCpEvents() {
+		$events = [
+			Cp::EVENT_REGISTER_CP_NAV_ITEMS,
+		];
+
+		foreach ($events as $eventName) {
+			Event::on(
+				Cp::class,
+				$eventName,
+				function(RegisterCpNavItemsEvent $event) use($eventName) {
+					if ($eventName == Cp::EVENT_REGISTER_CP_NAV_ITEMS) {
+						$sourcePath = "@modules/delaneymethod/craftyalgolia/assetbundles/craftyalgolia/dist";
+
+						$customNavItems = [
+							[
+								'url' => 'entries/videos',
+								'label' => 'Behind the Scenes',
+								'icon' => "$sourcePath/img/microphone.svg",
+							],
+						];
+
+						self::$instance->craftyAlgoliaService->buildCustomNav($event, $customNavItems);
+					}
+				}
+			);
+		}
 	}
 }

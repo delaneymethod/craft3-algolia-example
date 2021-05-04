@@ -36,4 +36,17 @@ class CraftyAlgoliaService extends Component {
 			'youtubeUrl' => $entry->youtubeUrl,
 		];
 	}
+
+	/**
+	 * @param $event
+	 * @param $customNavItems
+	 * @return mixed
+	 */
+	public function buildCustomNav($event, $customNavItems) {
+		foreach ($customNavItems as $navItem) {
+			$event->navItems[] = $navItem;
+		}
+
+		return $event->navItems;
+	}
 }
